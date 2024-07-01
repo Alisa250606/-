@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <math.h>
+
+float time_to_eat_pie(float t1, float t2, float t3) {
+  // Швидкість, з якою їдять пиріг гості разом
+  float total_rate = (1.0f / t1) + (1.0f / t2) + (1.0f / t3);
+  // Час, необхідний для того, щоб гості разом з'їли пиріг
+  float time = 1.0f / total_rate;
+  // Округлення до двох знаків після коми
+  time = roundf(time * 100.0f) / 100.0f;
+  return time;
+}
+
+int main() {
+  // Вхідні дані
+  float t1, t2, t3;
+  scanf("%f %f %f", &t1, &t2, &t3);
+
+  // Розрахунок часу
+  float time = time_to_eat_pie(t1, t2, t3);
+
+  // Виведення результату
+  printf("Час, необхідний для з'їдання пирога: %.2f годин\n", time);
+
+  return 0;
+}
