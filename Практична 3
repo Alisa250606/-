@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+long long countNumbers(int p) {
+    if (p <= 0) return 0;
+    
+    long long dp5[p+1], dp9[p+1];
+    
+    dp5[1] = 1;
+    dp9[1] = 1; 
+    
+    for (int r = 2; r <= p; r++) {
+        dp5[r] = dp9[r-1];
+        dp9[r] = dp5[r-1];
+    }
+    
+    long long result = dp5[p] + dp9[p];
+    
+    return result;
+}
+
+int main() {
+    int p;
+    scanf("%d", &p);
+    
+    long long result = countNumbers(p);
+    
+    printf("%lld\n", result);
+    
+    return 0;
+}
