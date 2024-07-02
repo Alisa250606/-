@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+
+float length_of_vector(float x1, float y1, float x2, float y2) {
+
+  float dx = x2 - x1;
+  float dy = y2 - y1;
+
+  float length_squared = dx * dx + dy * dy;
+
+  float length = sqrtf(length_squared);
+
+  return length;
+}
+
+int main() {
+
+  float x1, y1, x2, y2;
+  scanf("%f %f %f %f", &x1, &y1, &x2, &y2);
+
+
+  float length = length_of_vector(x1, y1, x2, y2);
+
+
+  printf("%.6f\n", length);
+
+  return 0;
+}
