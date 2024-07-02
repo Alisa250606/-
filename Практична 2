@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int gcd(int a, int b) {
+  while (b != 0) {
+    int t = b;
+    b = a % b;
+    a = t;
+  }
+  return a;
+}
+
+int lcm(int a, int b) {
+  return a * b / gcd(a, b);
+}
+
+int main() {
+ 
+  int p;
+  scanf("%d", &p);
+
+  int* numbers = malloc(p * sizeof(int));
+  for (int i = 0; i < p; i++) {
+    scanf("%d", &numbers[i]);
+  }
+
+  int lcm_value = numbers[0];
+  for (int i = 1; i < p; i++) {
+    lcm_value = lcm(lcm_value, numbers[i]);
+  }
+
+  printf("%d\n", lcm_value);
+
+  free(numbers);
+  return 0;
+}
